@@ -1,6 +1,24 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+    }
 
+    //1431. Kids With the Greatest Number of Candies(00:08:33)
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> list = new ArrayList<>();
+        for (int candy : candies) {
+            list.add(checkCandies(candies, candy + extraCandies));
+        }
+        return list;
+    }
+
+    boolean checkCandies(int[] candies, int count) {
+        if (Arrays.stream(candies).max().getAsInt() <= count)
+            return true;
+        return false;
     }
 
     //1071. Greatest Common Divisor of Strings(00:48:39)
