@@ -6,6 +6,28 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    //605. Can Place Flowers(00:25:47)
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int count = 0;
+        if (flowerbed[0] == 0 && flowerbed.length == 1)
+            return true;
+        for (int i = 1; i < flowerbed.length; i++) {
+            if (i - 1 > 0 && i + 1 < flowerbed.length && flowerbed[i - 1] == 0 && flowerbed[i + 1] == 0 && flowerbed[i] == 0) {
+                flowerbed[i] = 1;
+                count++;
+            }
+            if (i + 1 < flowerbed.length && flowerbed[0] == 0 && flowerbed[1] == 0) {
+                flowerbed[0] = 1;
+                count++;
+            }
+            if (flowerbed[flowerbed.length - 1] == 0 && flowerbed[flowerbed.length - 2] == 0) {
+                flowerbed[flowerbed.length - 2] = 1;
+                count++;
+            }
+        }
+        return count >= n;
+    }
+
     //1431. Kids With the Greatest Number of Candies(00:08:33)
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> list = new ArrayList<>();
