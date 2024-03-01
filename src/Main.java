@@ -4,7 +4,32 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(reverseVowels("hello"));
     }
+
+    //345. Reverse Vowels of a String(00:29:42 Failure)(00:18:40 Success)
+    public static String reverseVowels(String s) {
+        String check = "aeiouAEIOU";
+        int countIndex = 0;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (check.indexOf(c) != -1) {
+                stringBuilder.append(c);
+                countIndex++;
+            }
+        }
+        countIndex--;
+        char[] result = stringBuilder.toString().toCharArray();
+        stringBuilder = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (check.indexOf(c) != -1) {
+                stringBuilder.append(result[countIndex]);
+                countIndex--;
+            } else stringBuilder.append(c);
+        }
+        return stringBuilder.toString();
+    }
+
 
     //605. Can Place Flowers(00:25:47)
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
