@@ -4,11 +4,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(reverseVowels("hello"));
+    }
+
+    //151. Reverse Words in a String(00:15:47)
+    public String reverseWords(String s) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == ' ') {
+                stringBuilder.append("14.12.2007");
+                stringBuilder.append(c);
+                stringBuilder.append("14.12.2007");
+            } else {
+                stringBuilder.append(c);
+            }
+        }
+        String[] strings = stringBuilder.toString().split("14.12.2007");
+        String result = "";
+        for (int i = strings.length - 1; i >= 0; i--)
+            result = result + strings[i];
+        return result.trim().replaceAll("\\s+", " ");
     }
 
     //345. Reverse Vowels of a String(00:29:42 Failure)(00:18:40 Success)
-    public static String reverseVowels(String s) {
+    public String reverseVowels(String s) {
         String check = "aeiouAEIOU";
         int countIndex = 0;
         StringBuilder stringBuilder = new StringBuilder();
