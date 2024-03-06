@@ -1,9 +1,27 @@
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+    }
+
+    //334. Increasing Triplet Subsequence(00:32:29)
+    public static boolean increasingTriplet(int[] nums) {
+        if (Arrays.stream(nums).max().getAsInt() == 2 && Arrays.stream(nums).min().getAsInt() > 0)
+            return false;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            for (int i1 = i; i1 >= 0; i1--) {
+                if (nums[i] > nums[i1]) {
+                    for (int i2 = i1; i2 >= 0; i2--) {
+                        if (nums[i1] > nums[i2])
+                            return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     //151. Reverse Words in a String(00:15:47)
