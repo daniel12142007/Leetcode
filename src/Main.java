@@ -1,4 +1,3 @@
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,8 +6,28 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    //443. String Compression(00:25:30 Failure)(00:56:12 Failure)(00:04:16 Success)
+    public int compress(char[] chars) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int count = 1;
+        for (int i = 0; i < chars.length; i++) {
+            if (i + 1 < chars.length && chars[i] == chars[i + 1]) {
+                count++;
+            } else {
+                stringBuilder.append(chars[i]);
+                if (count > 1)
+                    stringBuilder.append(count);
+                count = 1;
+            }
+        }
+        for (int i = 0; i < stringBuilder.toString().toCharArray().length; i++) {
+            chars[i] = stringBuilder.charAt(i);
+        }
+        return stringBuilder.length();
+    }
+
     //334. Increasing Triplet Subsequence(00:32:29)
-    public static boolean increasingTriplet(int[] nums) {
+    public boolean increasingTriplet(int[] nums) {
         if (Arrays.stream(nums).max().getAsInt() == 2 && Arrays.stream(nums).min().getAsInt() > 0)
             return false;
         for (int i = nums.length - 1; i >= 0; i--) {
@@ -118,7 +137,7 @@ public class Main {
         else return gcb(y, x % y);
     }
 
-    //    1768. Merge Strings Alternately(00:08:38)
+    //1768. Merge Strings Alternately(00:08:38)
     public String mergeAlternately(String word1, String word2) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < Math.max(word1.getBytes().length, word2.getBytes().length); i++) {
