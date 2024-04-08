@@ -6,6 +6,21 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    //283. Move Zeroes(00:42:18)
+    public void moveZeroes(int[] numbers) {
+        int[] array = new int[numbers.length];
+        int count = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] != 0) {
+                array[count] = numbers[i];
+                count++;
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            numbers[i] = array[i];
+        }
+    }
+
     //443. String Compression(00:25:30 Failure)(00:56:12 Failure)(00:04:16 Success)
     public int compress(char[] chars) {
         StringBuilder stringBuilder = new StringBuilder();
