@@ -6,6 +6,34 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    //392. Is Subsequence(00:20:05 Failure)(00:30:12 Success)
+    public boolean isSubsequence(String s, String t) {
+        int index = -1;
+        int count = 0;
+        if (s.equals(""))
+            return true;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(t);
+        for (char c : s.toCharArray()) {
+            boolean a = true;
+            if (index < stringBuilder.indexOf(String.valueOf(c))) {
+                count++;
+                index = stringBuilder.indexOf(String.valueOf(c));
+                stringBuilder.replace(index, index + 1, " ");
+                a = false;
+            }
+            if (index < stringBuilder.lastIndexOf(String.valueOf(c)) && a) {
+                count++;
+                index = stringBuilder.lastIndexOf(String.valueOf(c));
+                stringBuilder.replace(index, index + 1, " ");
+            }
+            a = true;
+            if (count == s.length())
+                return true;
+        }
+        return false;
+    }
+
     //283. Move Zeroes(00:42:18)
     public void moveZeroes(int[] numbers) {
         int[] array = new int[numbers.length];
