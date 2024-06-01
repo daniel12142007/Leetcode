@@ -4,6 +4,28 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(maxOperations(new int[]{3, 5, 1, 5}, 2));
+    }
+
+    //1679. Max Number of K-Sum Pairs(00:09:00)
+    public static int maxOperations(int[] nums, int k) {
+        Arrays.sort(nums);
+        int right = nums.length - 1;
+        int left = 0;
+        int count = 0;
+        while (left < right) {
+            if (nums[right] + nums[left] == k) {
+                right--;
+                left++;
+                count++;
+            }
+            if (nums[right] + nums[left] > k)
+                right--;
+            if (nums[right] + nums[left] < k)
+                left++;
+
+        }
+        return count;
     }
 
     //392. Is Subsequence(00:20:05 Failure)(00:30:12 Success)
