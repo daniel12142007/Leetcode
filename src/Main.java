@@ -4,7 +4,30 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(maxOperations(new int[]{3, 5, 1, 5}, 2));
+        System.out.println(findMaxAverage(new int[]{-1}, 1));
+    }
+
+    //643. Maximum Average Subarray I(00:30:00)
+    public static double findMaxAverage(int[] nums, int k) {
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        int l1 = 0;
+        int l2 = 0;
+        int count = 0;
+        while (l1 < nums.length) {
+            while (l1 - count < k) {
+                sum += nums[l1];
+                l1++;
+            }
+            if (sum > max) {
+                max = sum;
+            } else {
+                sum -= nums[l2];
+                l2++;
+                count++;
+            }
+        }
+        return (double) max / k;
     }
 
     //1679. Max Number of K-Sum Pairs(00:09:00)
