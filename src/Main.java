@@ -4,7 +4,28 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(findMaxAverage(new int[]{-1}, 1));
+        System.out.println(longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+    }
+
+    //14. Longest Common Prefix(00:08:49)
+    public static String longestCommonPrefix(String[] strs) {
+        int index = 0;
+        StringBuilder s = new StringBuilder();
+        outer:
+        while (index < strs[0].toCharArray().length) {
+            for (int i = 1; i < strs.length; i++) {
+                if (strs[i].toCharArray().length <= index || strs[0].charAt(index) != strs[i].charAt(index))
+                    break outer;
+            }
+            s.append(strs[0].charAt(index));
+            index++;
+        }
+        return s.toString();
+    }
+
+    //1456. Maximum Number of Vowels in a Substring of Given Length(00:58:31 Failure)
+    public static int maxVowels(String s, int k) {
+        return 0;
     }
 
     //643. Maximum Average Subarray I(00:30:00)
