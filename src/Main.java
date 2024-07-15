@@ -1,10 +1,25 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+    }
+
+    //    26. Remove Duplicates from Sorted Array(00:04:51)
+    public static int removeDuplicates(int[] nums) {
+        var list = new ArrayList<Integer>();
+        for (int num : nums) list.add(num);
+        Collections.sort(list);
+        var unigue = new HashSet<>();
+        int index = 0;
+        for (Integer i : list) {
+            int size = unigue.size() + 1;
+            unigue.add(i);
+            if (size == unigue.size()) {
+                nums[index] = i;
+                index++;
+            }
+        }
+        return unigue.size();
     }
 
     //14. Longest Common Prefix(00:08:49)
