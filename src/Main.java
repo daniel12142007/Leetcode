@@ -4,6 +4,38 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    //20. Valid Parentheses(00:22:41 Failure)
+    public static boolean isValid(String s) {
+        String filterOne = s
+                .replaceAll("[{\\\\}]", "")
+                .replaceAll("[(\\\\)]", "");
+        String filterTwo = filterOne
+                .replace("(", "1")
+                .replace(")", "1")
+                .replaceAll("[(\\\\)]", "");
+        System.out.println(filterTwo);
+        String a = filterTwo.replace('[', '(').replace(']', ')')
+                .replaceAll("[{\\\\}]", "")
+                .replaceAll("[(\\\\)]", "");
+        System.out.println(a);
+        return a.length() == 0;
+    }
+
+    //1929. Concatenation of Array(00:02:09)
+    public static int[] getConcatenation(int[] nums) {
+        int[] a = nums;
+        nums = new int[nums.length * 2];
+        for (int i = 0; i < a.length; i++) {
+            nums[i] = a[i];
+        }
+        int index = a.length - 1;
+        for (int j : a) {
+            nums[index] = j;
+            index++;
+        }
+        return nums;
+    }
+
     //    26. Remove Duplicates from Sorted Array(00:04:51)
     public static int removeDuplicates(int[] nums) {
         var list = new ArrayList<Integer>();
