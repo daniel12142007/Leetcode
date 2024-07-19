@@ -21,6 +21,16 @@ public class Main {
         return a.length() == 0;
     }
 
+    //1108. Defanging an IP Address(00:00:42)
+    public String defangIPaddr(String address) {
+        StringBuilder str = new StringBuilder();
+        for (char c : address.toCharArray()) {
+            if (c == '.') str.append("[.]");
+            else str.append(c);
+        }
+        return str.toString();
+    }
+
     //2011. Final Value of Variable After Performing Operations(00:01:05)
     public int finalValueAfterOperations(String[] operations) {
         int count = 0;
