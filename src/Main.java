@@ -21,6 +21,19 @@ public class Main {
         return a.length() == 0;
     }
 
+    //2011. Final Value of Variable After Performing Operations(00:01:05)
+    public int finalValueAfterOperations(String[] operations) {
+        int count = 0;
+        for (String operation : operations) {
+            for (int i = 0; i < operation.toCharArray().length; i++) {
+                if (operation.charAt(2) == '+')
+                    count++;
+                else count--;
+            }
+        }
+        return count;
+    }
+
     //1920. Build Array from Permutation(00:00:27)
     public int[] buildArray(int[] nums) {
         int[] solve = new int[nums.length];
