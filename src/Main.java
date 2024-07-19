@@ -21,6 +21,13 @@ public class Main {
         return a.length() == 0;
     }
 
+    //1920. Build Array from Permutation(00:00:27)
+    public int[] buildArray(int[] nums) {
+        int[] solve = new int[nums.length];
+        for (int i = 0; i < solve.length; i++) solve[i] = nums[nums[i]];
+        return solve;
+    }
+
     //1929. Concatenation of Array(00:02:09)
     public static int[] getConcatenation(int[] nums) {
         int[] a = nums;
