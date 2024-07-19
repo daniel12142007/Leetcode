@@ -21,6 +21,16 @@ public class Main {
         return a.length() == 0;
     }
 
+    //1512. Number of Good Pairs(00:01:20)
+    public int numIdenticalPairs(int[] nums) {
+        Arrays.sort(nums);
+        int count = 0;
+        for (int i = 0; i < nums.length; i++)
+            for (int j = i; j < nums.length; j++)
+                if (nums[i] == nums[j] && i != j) count++;
+        return count;
+    }
+
     //1108. Defanging an IP Address(00:00:42)
     public String defangIPaddr(String address) {
         StringBuilder str = new StringBuilder();
