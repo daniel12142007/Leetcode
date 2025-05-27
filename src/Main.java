@@ -4,6 +4,16 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    //28. Find the Index of the First Occurrence in a String(00:01:20)
+    public int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
+
+    //1456. Maximum Number of Vowels in a Substring of Given Length(00:58:31 Failure)
+    public static int maxVowels(String s, int k) {
+        return 0;
+    }
+
     //20. Valid Parentheses(00:22:41 Failure)
     public static boolean isValid(String s) {
         String filterOne = s
@@ -62,7 +72,7 @@ public class Main {
     }
 
     //1929. Concatenation of Array(00:02:09)
-    public static int[] getConcatenation(int[] nums) {
+    public int[] getConcatenation(int[] nums) {
         int[] a = nums;
         nums = new int[nums.length * 2];
         for (int i = 0; i < a.length; i++) {
@@ -77,7 +87,7 @@ public class Main {
     }
 
     //    26. Remove Duplicates from Sorted Array(00:04:51)
-    public static int removeDuplicates(int[] nums) {
+    public int removeDuplicates(int[] nums) {
         var list = new ArrayList<Integer>();
         for (int num : nums) list.add(num);
         Collections.sort(list);
@@ -95,7 +105,7 @@ public class Main {
     }
 
     //14. Longest Common Prefix(00:08:49)
-    public static String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix(String[] strs) {
         int index = 0;
         StringBuilder s = new StringBuilder();
         outer:
@@ -110,13 +120,9 @@ public class Main {
         return s.toString();
     }
 
-    //1456. Maximum Number of Vowels in a Substring of Given Length(00:58:31 Failure)
-    public static int maxVowels(String s, int k) {
-        return 0;
-    }
 
     //643. Maximum Average Subarray I(00:30:00)
-    public static double findMaxAverage(int[] nums, int k) {
+    public double findMaxAverage(int[] nums, int k) {
         int sum = 0;
         int max = Integer.MIN_VALUE;
         int l1 = 0;
@@ -139,7 +145,7 @@ public class Main {
     }
 
     //1679. Max Number of K-Sum Pairs(00:09:00)
-    public static int maxOperations(int[] nums, int k) {
+    public int maxOperations(int[] nums, int k) {
         Arrays.sort(nums);
         int right = nums.length - 1;
         int left = 0;
